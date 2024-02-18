@@ -1,0 +1,46 @@
+############################################## Notes ###########################################
+
+- Functional Programing (FP)  and Procudural Programing are the same .
+- a class is a Data Type.
+- OOP: Divide to Classes (Classification) .
+- clsPerson Person1 ; we call Person1 Instance From Class clsPerson.
+- everything within a class is Private by default,so we write Public in some places.
+
+
+
+
+############################################# Classes and Objects #########################################
+
+
+#include <iostream>
+
+using namespace std;
+
+ class clsPerson
+{
+    public:
+	string FirstName; 
+	string LastName;
+
+	string FullName() 
+	{
+		return FirstName + " " + LastName;
+	}
+};
+
+
+int main()
+{
+
+clsPerson Person1; // Initialize new Object 
+	Person1.FirstName = "Mohammed"; 
+	Person1.LastName = "Abu-Hadhoud";
+	cout << Person1.FullName(); // call a Method 
+
+	return 0;
+}
+
+############################################# Class Members #########################################
+
+
+
