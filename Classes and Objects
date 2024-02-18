@@ -19,10 +19,10 @@ using namespace std;
  class clsPerson
 {
     public:
-	string FirstName; 
-	string LastName;
+	string FirstName; // called Data Member.
+	string LastName; // called Data Member.
 
-	string FullName() 
+	string FullName() // any Function within a class is a : Method & called Function Member. 
 	{
 		return FirstName + " " + LastName;
 	}
@@ -42,5 +42,17 @@ clsPerson Person1; // Initialize new Object
 
 ############################################# Class Members #########################################
 
+- Data Member is any variable declared inside the class that holds data.
+- Function Member is any function or procedure inside a class.
+- Class Members are => Data Members and Function Members.
+
+#############################################  Objects In Memory ####################################
+
+- Every Object has it's own space in memory that hold both Data Members & Function Members.
 
 
+#############################################  Access Specifiers/Modifiers ###########################
+In C++, there are 3 access modifiers: public - private - protected 
+- The public members are accessible from any part of the program.
+- The private members can only be accessed from within the class.
+- The protected members can be accessed within the class and from the derived class.
