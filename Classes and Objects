@@ -118,5 +118,52 @@ public:
 
 - read / write property is to impliment: both get and set function 
 
+######################### code 
+
+#include <iostream>
+
+using namespace std;
+
+class clsPerson {
+
+private:
+	int _ID = 20;
+	string _Name;
+
+public:
+
+	//Property set
+	void setName(string Name) {
+		_Name = Name;
+	}
+	//Property get
+	string getName() {
+		return _Name;
+	}
+	// read Only property
+	int ID() {
+		return _ID;
+	}
 
 
+};
+
+int main()
+{
+	clsPerson Person1;
+
+	Person1.setName("Mohammed");
+
+	cout <<"ID:"<< Person1.ID() << endl;
+	cout << "Name:"<< Person1.getName() << endl;
+
+}
+
+########################################## Encapsulation ########################
+
+- In normal terms Encapsulation is defined as wrapping up of data and information under a single unit. In Object Oriented Programming, Encapsulation is defined as binding together the data and the functions that manipulates them.
+
+######################################### Abstraction ###########################
+
+- In simple terms, abstraction “displays” only the relevant attributes of objects and “hides” the unnecessary details.
+- Abstraction is concept is not relvent to Abstracted Class !!
