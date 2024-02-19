@@ -58,12 +58,20 @@ clsPerson Person1; // Initialize new Object
 - The protected members can be accessed within the class and from the derived class(Inherit class).
 
 ############################################# Properties Set and Get ###########################
+Note : 
+- Properties are Functions allow you to Update Private Members inside the class
+- Properties are two functions one for Setting Data and One for getting Data.(Seter and Geter ) .
+- If you want to update data inside class you should write a property function to set them.
+- If you want to retrieve Data Member from a class you should write a property function to get that data.
+- Both property functions set and get they use a private data member to store and get data from it.
+
+############################################# Code ############################
 
 #include <iostream> 
 using namespace std;
 
 class clsPerson{
-private:
+private: // Private Data Members
     string _FirstName;
     string _LastName;
 
@@ -104,4 +112,11 @@ public:
       return 0;
   }
 
-############################################# Properties Set and Get ###########################
+############################################# Read Only Property ###########################
+- In order have a read only property you only implement the set function and you don't implement the get function
+بالعربية اذا كانت عندك بروبريتي جيت فقط دون سيتر هنا نقول عن الجيت بروبريتي انها ريد اونلي يعني تقرا فقط قيمة المتغيير ولا تهدل عليه ابدا.
+
+- read / write property is to impliment: both get and set function 
+
+
+
