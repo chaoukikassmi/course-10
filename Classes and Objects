@@ -1,4 +1,4 @@
-############################################## Notes ###########################################
+############################################## Notes ######################################################
 
 - Functional Programing (FP)  and Procudural Programing are the same .
 - a class is a Data Type.
@@ -50,9 +50,58 @@ clsPerson Person1; // Initialize new Object
 
 - Every Object has it's own space in memory that hold both Data Members & Function Members.
 
-
 #############################################  Access Specifiers/Modifiers ###########################
-In C++, there are 3 access modifiers: public - private - protected 
+
+* In C++, there are 3 access modifiers: public - private - protected 
 - The public members are accessible from any part of the program.
 - The private members can only be accessed from within the class.
-- The protected members can be accessed within the class and from the derived class.
+- The protected members can be accessed within the class and from the derived class(Inherit class).
+
+############################################# Properties Set and Get ###########################
+
+#include <iostream> 
+using namespace std;
+
+class clsPerson{
+private:
+    string _FirstName;
+    string _LastName;
+
+public: 
+    //Property Set
+    void setFirstName(string FirstName)
+    {
+        _FirstName = FirstName;
+    }
+
+    //Property Get
+    string FirstName()
+    {
+        return _FirstName;
+    } 
+    //Property Set 
+    void setLastName(string LastName) {
+        _LastName = LastName;
+    }
+
+    //Property Get 
+    string LastName() {
+        return _LastName;
+    }
+    string FullName() {
+        return _FirstName + " " + _LastName;
+    }
+};
+
+  int main() {
+      clsPerson Person1;
+      Person1.setFirstName("Mohammed");
+      Person1.setLastName("Abu-Hadhoud");
+      cout << "First Name:" << Person1.FirstName() << endl;
+      cout << "Last Name:" << Person1.LastName() << endl;
+      cout << "Full Name:" << Person1.FullName() << endl;
+      
+      return 0;
+  }
+
+############################################# Properties Set and Get ###########################
