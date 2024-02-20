@@ -464,3 +464,207 @@ int main()
    
 
 }
+############################## Inheritence ################
+
+#include <iostream>
+using namespace std;
+
+// Base class
+class Vehicle {
+public:
+    string brand = "Ford";
+    void honk() {
+        cout << "Tuut, tuut! \n";
+    }
+};
+
+// Derived class
+class Car : public Vehicle {
+public:
+    string model = "Mustang";
+};
+
+int main() {
+    Car myCar;
+    myCar.honk();
+    cout << myCar.brand + " " + myCar.model;
+    return 0;
+}
+
+###################################### Parameterized Constructor of the Base Class ########################
+
+#include <iostream>
+using namespace std;
+
+class clsPerson // Base Class
+{
+
+private:
+	int _ID;
+	string _FirstName;
+	string _LastName;
+	string _Email;
+	string _Phone;
+public:
+	//Constructor 
+	clsPerson(int ID, string FirstName, string LastName, string Email, string Phone)
+	{
+		_ID = ID;
+		_FirstName = FirstName;
+		_LastName = LastName;
+		_Email = Email;
+		_Phone = Phone;
+	}
+
+	void setFirstName(string FirstName)
+	{
+		_FirstName = FirstName;
+	}
+
+	void setLastName(string LastName)
+	{
+		_LastName = LastName;
+	}
+
+
+	void setEmail(string Email)
+	{
+		_Email = Email;
+	}
+
+	void setPhone(string Phone)
+	{
+		_Phone = Phone;
+	}
+
+	int getID()
+	{
+		return _ID;
+	}
+
+	string getFirstName()
+	{
+		return _FirstName;
+	}
+
+	string getLastName()
+	{
+		return _LastName;
+	}
+
+	string FullName()
+	{
+		return _FirstName + " " + _LastName;
+	}
+
+
+
+	string getEmail()
+	{
+		return _Email;
+	}
+
+	string getPhone()
+	{
+		return _Phone;
+	}
+
+	void Print()
+	{
+		cout << "\nInfo:";
+		cout << "\n___________________";
+		cout << "\nID        : " << _ID;
+		cout << "\nFirstName : " << _FirstName;
+		cout << "\nLastName  : " << _LastName;
+		cout << "\nFull Name : " << FullName();
+		cout << "\nEmail     : " << _Email;
+		cout << "\nPhone     : " << _Phone;
+		cout << "\n___________________\n";
+	}
+	void SendSMS(string TextMessage)
+	{
+		cout << "\nThe following SMS sent successfully to phone: " << _Phone;
+		cout << "\n" << TextMessage << endl;
+	}
+
+	void SendEmail(string Subject, string Body)
+	{
+		cout << "\nThe following message sent successfully to email: " << _Email;
+		cout << "\nSubject: " << Subject;
+		cout << "\nBody: " << Body << endl;
+	}
+};
+
+//sub class (Derived Class) 
+class clsEmployee : public clsPerson
+{
+private:
+	string _Title;
+	float _Salary;
+	string _Department;
+public:
+	//Constructor
+	clsEmployee(int ID, string FirstName, string LastName, string Email, string Phone, string Title, float Salary, string Department) 
+		       : clsPerson(ID, FirstName, LastName, Email, Phone) // => Parameterized Constructor of the Base Class => Send parameters to Base Class
+	{
+		_Title = Title;
+		_Salary = Salary;
+		_Department = Department;
+	}
+
+	void setTitle(string Title)
+	{
+		_Title = Title;
+	}
+
+
+	void setSalary(float Salary)
+	{
+		_Salary = Salary;
+	}
+
+	void setDepartment(string Department)
+	{
+		_Department = Department;
+	}
+
+
+	string getTitle()
+	{
+		return _Title;
+	}
+
+	float getSalary()
+	{
+		return _Salary;
+	}
+
+	string getDepartment()
+	{
+		return _Department;
+	}
+
+	void Print()
+	{
+		cout << "\nInfo:";
+		cout << "\n___________________";
+		cout << "\nID        : " << getID();
+		cout << "\nFirstName : " << getFirstName();
+		cout << "\nLastName  : " << getLastName();
+		cout << "\nFull Name : " << FullName();
+		cout << "\nTitle     : " << _Title;
+		cout << "\nEmail     : " << getEmail();
+		cout << "\nPhone     : " << getPhone();
+		cout << "\nSalary    : " << _Salary;
+		cout << "\nDepartment: " << _Department;
+		cout << "\n___________________\n";
+	}
+};
+
+int main()
+{
+	clsEmployee Employee1(10, "Ahmed", "ALghami", "AL Baha", "Ahmed@gmail.com", "1234567890", 15000, "Computer Sciense");
+	Employee1.Print();
+	Employee1.SendEmail("I have a problem", "I have a problem with your company");
+	Employee1.SendSMS("Hello I'm " + Employee1.FullName() + " How Are You Doing");
+}
