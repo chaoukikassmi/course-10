@@ -167,3 +167,109 @@ int main()
 
 - In simple terms, abstraction “displays” only the relevant attributes of objects and “hides” the unnecessary details.
 - Abstraction is concept is not relvent to Abstracted Class !!
+
+######################################### Calculator Project ######################
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class ClsCalculator
+{
+private:
+	//Default values
+	float _Result = 0;
+	float _LastNumber = 0;
+	float _PreviousResult = 0;
+	string _LastOperation = "Clear";
+
+	bool _isZero(float Number)
+	{
+		return (Number == 0);
+	}
+
+public:
+	void add(float Number)
+	{
+		_LastNumber = Number;
+		_PreviousResult = _Result;
+		_LastOperation = "Adding";
+		_Result += Number;
+	}
+
+	void subtract(float Number)
+	{
+		_LastNumber = Number;
+		_PreviousResult = _Result;
+		_LastOperation = "Subtract";
+		_Result -= Number;
+	}
+
+	void multiply(float Number)
+	{
+		_LastNumber = Number;
+		_PreviousResult = _Result;
+		_LastOperation = "Multiply";
+		_Result *= Number;
+	}
+
+	void divide(float Number)
+
+	{
+		_LastNumber = Number;
+
+		if (_isZero(Number)) 
+		{
+			Number = 1;
+		}
+
+		_PreviousResult = _Result;
+		_LastOperation = "Devide";
+		_Result /= Number;
+	}
+
+
+	float GetFinalResults()
+	{
+		return _Result;
+	}
+
+	void Clear()
+	{
+		 _Result = 0;
+		 _LastNumber = 0;
+		 _PreviousResult = 0;
+		 _LastOperation = "Clear";
+
+	}
+
+	void CancelLastOperation()
+	{
+		_LastNumber = 0;
+		_LastOperation = "Canceling Last Operation";
+		_Result = _PreviousResult;
+	}
+
+
+	void PrintResult()
+	{
+		cout << "Result :";
+		cout << "After " << _LastOperation << " " << _LastNumber << " is " << _Result << "\n";
+	}
+};
+
+int main()
+{
+
+
+	ClsCalculator Calculator;
+	Calculator.add(15);
+	Calculator.PrintResult();
+
+	Calculator.divide(15);
+	Calculator.PrintResult();
+
+	return 0;
+};
+
+####################
