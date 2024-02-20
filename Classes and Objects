@@ -904,3 +904,86 @@ int main()
     system("pause>0");
     return 0;
 }
+##################################  Multi Level Inheritance ##################################### 
+
+#include <iostream>
+
+using namespace std;
+
+// Base class (parent)
+class MyClass {
+public:
+    void myFunction() {
+        cout << "Some content in parent class.";
+    }
+};
+
+// Derived class (child)
+class MyChild : public MyClass {
+};
+
+// Derived class (grandchild)
+class MyGrandChild : public MyChild {
+};
+
+int main() {
+    MyGrandChild myObj;
+
+    myObj.myFunction();
+    return 0;
+}
+
+############################ Access Specifiers/Modifiers  works with sub classes ##########################
+
+#include <iostream>
+
+using namespace std;
+
+class clsA
+{
+private:
+    //only accessible   inside this class, neither derived classes nor outside class.
+    int _Var1;
+    void _Fun1()
+    {
+        cout << "Function 1";
+    }
+
+protected:
+    //only accessible  inside this class and all derived classes, but not outside class
+    int Var2;
+    void Fun2()
+    {
+        cout << "Function 1";
+    }
+
+public:
+    // Accessable inside this class, all derived classes, and outside class
+    int Var3;
+    void Fun3()
+    {
+        cout << "Function 1";
+    }
+
+};
+
+class clsB : public clsA
+{
+    
+public:
+
+    void Func1()
+    {
+        cout << clsA::Var2; //IMPORTANT : this :: sign called "scope resolution"
+
+    }
+};
+
+int main()
+
+{
+
+   
+    system("pause>0");
+    return 0;
+}
