@@ -352,4 +352,12 @@ int main()
 	return 0;
 };
 
+###########################  Destructors ########################
+- Destructor is an instance member function which is invoked automatically whenever an object is going to be destroyed. Meaning, a destructor is the last function that is going to be called before an object is destroyed.
+
+	// Destructor : note called last one of class member ,will excuted to free memory from objects that we don't need
+	~ClsAdress()
+	{
+		cout << "\n HI,IAM Destructor";
+	}
 
