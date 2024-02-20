@@ -272,4 +272,84 @@ int main()
 	return 0;
 };
 
-####################
+#################### Constructors
+- A constructor is a special type of member function that is called automatically when an object is created.
+- In C++, a constructor has the same name as that of the class and it does not have a return type.
+- Default Constructor: A constructor with no parameters is known as a default constructor.
+
+###################################
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class ClsAdress
+{
+private:
+	string _AdressLine;
+	string _MailBox;
+	string _ZipCode;
+
+
+public:
+	//Constructor
+	ClsAdress(string adress,string MailBox,string ZipCode)
+	{
+		_AdressLine = adress;
+		_MailBox = MailBox;
+		_ZipCode = ZipCode;
+	}
+
+	//Setters
+	void SetAdressLine(string adress)
+	{
+		_AdressLine = adress;
+	}
+
+	void SetMailBox(string MailBox)
+	{
+		_MailBox = MailBox;
+	}
+
+	void SetZipCode(string ZipCode)
+	{
+		_ZipCode = ZipCode;
+	}
+
+	// Getters
+	string getAdressLine()
+	{
+		return _AdressLine;
+	}
+
+	string getMailBox()
+	{
+		return _MailBox;
+	}
+	string getZipCode()
+	{
+		return _ZipCode;
+	}
+
+	void Print()
+	{
+		cout << "------------------ Address ---------------\n";
+		cout << "\nAdress Line :" << getAdressLine() << endl;
+		cout << "\nMail Box :" << getMailBox() << endl;
+		cout << "\nZip Code :" << getZipCode() << endl;
+		cout << "------------------ ******** --------------\n";
+	}
+
+};
+
+int main()
+{
+	ClsAdress Adress("Debila El Oued","1245","556633");
+	
+	Adress.Print();
+
+
+	return 0;
+};
+
+
